@@ -2085,13 +2085,13 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  3786368: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
- 3786429: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
- 3786493: function() {return Module.webglContextAttributes.powerPreference;},  
- 3786551: function() {Module['emscripten_get_now_backup'] = performance.now;},  
- 3786606: function($0) {performance.now = function() { return $0; };},  
- 3786654: function($0) {performance.now = function() { return $0; };},  
- 3786702: function() {performance.now = Module['emscripten_get_now_backup'];}
+  3786208: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
+ 3786269: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
+ 3786333: function() {return Module.webglContextAttributes.powerPreference;},  
+ 3786391: function() {Module['emscripten_get_now_backup'] = performance.now;},  
+ 3786446: function($0) {performance.now = function() { return $0; };},  
+ 3786494: function($0) {performance.now = function() { return $0; };},  
+ 3786542: function() {performance.now = Module['emscripten_get_now_backup'];}
 };
 
 
@@ -2247,6 +2247,14 @@ var ASM_CONSTS = {
         HEAPF64[totalJSptr >> 3] = NaN;
         HEAPF64[usedJSptr >> 3] = NaN;
       }
+    }
+
+  function _IsMobile() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android/i.test(userAgent) || /iPad|iPhone|iPod/.test(userAgent)) {
+        return true;
+      }
+      return false;
     }
 
   var JS_Accelerometer = null;
@@ -15458,6 +15466,7 @@ function checkIncomingModuleAPI() {
 }
 var asmLibraryArg = {
   "GetJSMemoryInfo": _GetJSMemoryInfo,
+  "IsMobile": _IsMobile,
   "JS_Accelerometer_IsRunning": _JS_Accelerometer_IsRunning,
   "JS_Accelerometer_Start": _JS_Accelerometer_Start,
   "JS_Accelerometer_Stop": _JS_Accelerometer_Stop,
